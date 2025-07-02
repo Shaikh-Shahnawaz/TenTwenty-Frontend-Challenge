@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 
 export default function BannerText({ setShowText }) {
-  // const totalWords = bannerText?.reduce((count,line)=> count + line.data.split('').length,0);
-  // const totalTime = (totalWords -1 * 0.3 + 0.5) * 1000;
 
   useEffect(() => {
     const timer = setTimeout(() => {

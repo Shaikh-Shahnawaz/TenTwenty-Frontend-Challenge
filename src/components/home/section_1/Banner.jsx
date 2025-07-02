@@ -1,79 +1,86 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { bannerImages, bannerMotionVars } from "@/variables/home/section_1";
-import "./Banner.css";
-import AnimatedImage from "./AnimatedImage";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { bannerImages } from "@/variables/home/section_1";
+import "./sectionOne.css";
 import BannerThumbnail from "./BannerThumbnail";
+import BannerSlider from "./BannerSlider";
+
+const DEFAULT_DURATION = 6; 
+const TRANSITION_DURATION = 1500; // this should same as banner animation duration
+const totalImages = bannerImages.length
 
 export default function Banner() {
+  const [thumbnailDuration, setThumbnailDuration] = useState(DEFAULT_DURATION);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [nextIndex, setNextIndex] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const timerRef = useRef(null);
   const currentIndexRef = useRef(currentIndex);
 
-  const triggerAnimation = (next) => {
+  // Handles image + animation trigger
+  const triggerAnimation = useCallback((next) => {
     setNextIndex(next);
     setIsAnimating(true);
 
     setTimeout(() => {
       setCurrentIndex(next);
+      currentIndexRef.current = next;
       setIsAnimating(false);
       setNextIndex(null);
-    }, 1500); // match animation duration
-  };
+    }, TRANSITION_DURATION);
+  }, []);
 
-  const nextImage = () => {
-    // console.log("currentIndex =>", currentIndex);
-    const next = (currentIndex + 1) % bannerImages.length;
-    // console.log("next =>", next);
+  // Click handler to go to next image
+  const nextImage = useCallback(() => {
+    setThumbnailDuration(0);
+    requestAnimationFrame(() => {
+      setThumbnailDuration(DEFAULT_DURATION);
+    });
+    const next = (currentIndexRef.current + 1) % totalImages;
     triggerAnimation(next);
     resetTimer();
-  };
+  }, [triggerAnimation]);
 
-  const resetTimer = () => {
+  // auto-advance image every DEFAULT_DURATION seconds
+  const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
-      const next = (currentIndexRef.current + 1) % bannerImages.length;
-      // console.log("Auto next =>", next);
+      const next = (currentIndexRef.current + 1) % totalImages;
       triggerAnimation(next);
-    }, 6000);
-  };
+    }, DEFAULT_DURATION * 1000);
+  }, [triggerAnimation]);
 
-  // Keep ref in sync with currentIndex
+  // sync with currentIndex
   useEffect(() => {
     currentIndexRef.current = currentIndex;
   }, [currentIndex]);
 
-  // Set interval only once
+  // start auto-play
   useEffect(() => {
     resetTimer();
     return () => clearInterval(timerRef.current);
-  }, []);
+  }, [resetTimer]);
 
   return (
+    <div className="bannerWrapper relative overflow-hidden">
+      {/* Thumbnail with snake animation */}
+      <BannerThumbnail
+        currentIndex={currentIndex}
+        nextIndex={nextIndex}
+        isAnimating={isAnimating}
+        onClick={nextImage}
+        thumbnailDuration={thumbnailDuration}
+        totalImages={totalImages}
+      />
 
-    <div className="bannerWrapper">
-      <BannerThumbnail isAnimating={isAnimating} alt="nextBanner" src={bannerImages[currentIndex]} nextImage={nextImage} />
-      {/* Base image - always rendered */}
-      <AnimatedImage src={bannerImages[currentIndex]} alt="currentBanner" />
-
-      {/* Animated overlay */}
-      <motion.div
-        className={`bannerImage overlayWrapper ${
-          isAnimating ? "visible" : "hidden"
-        }`}
-        initial={false}
-        animate={isAnimating ? bannerMotionVars.animate : {}}
-        transition={bannerMotionVars.transition}
-        style={bannerMotionVars.style}
-      >
-        {nextIndex !== null && (
-          <AnimatedImage src={bannerImages[nextIndex]} alt="nextBanner" />
-        )}
-      </motion.div>
+      {/* Main Banner Image Slider */}
+      <BannerSlider
+        currentIndex={currentIndex}
+        nextIndex={nextIndex}
+        isAnimating={isAnimating}
+      />
     </div>
   );
 }

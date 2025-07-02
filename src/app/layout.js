@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Work_Sans, Geist, Geist_Mono } from "next/font/google";
+import Navbar from "@/components/common/Navbar";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       className={`${workSans.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body>
+        <Navbar/>
         {children}
       </body>
     </html>

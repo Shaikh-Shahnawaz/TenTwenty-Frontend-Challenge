@@ -3,7 +3,6 @@ import BannerText from "./BannerText";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import FinalStaticText from "./FinalStaticText";
-import BannerThumbnail from "./BannerThumbnail";
 
 const SectionOne = () => {
   const [showText, setShowText] = useState(true);
@@ -30,7 +29,6 @@ const SectionOne = () => {
         <>
         <FinalStaticText/>
         <Banner />
-        {/* <BannerThumbnail/> */}
         </>
       )
       
