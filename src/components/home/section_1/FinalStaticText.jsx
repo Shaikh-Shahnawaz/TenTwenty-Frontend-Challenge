@@ -2,6 +2,7 @@
 
 import { bannerText } from '@/variables/home/section_1';
 import { motion } from 'framer-motion';
+import "./sectionOne.css";
 
 export default function FinalStaticText() {
   return (
@@ -9,7 +10,7 @@ export default function FinalStaticText() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.2, ease: 'easeOut' }}
-      className="absolute z-10 text-white text-center w-full top-[35%] px-4 space-y-2"
+      className="bannerText absolute z-10 text-white w-full top-[35%] px-4 space-y-2"
     >
         {
             bannerText?.map((ele,index)=>{

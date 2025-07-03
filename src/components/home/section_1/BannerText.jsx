@@ -17,17 +17,17 @@ export default function BannerText({ setShowText }) {
   let globalIndex = 0;
 
   return (
-    <motion.div
-      className="bannerText absolute z-10 text-white text-center w-full top-[35%] px-4 space-y-2"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -30, transition: { duration: 1 } }}
-    >
+<motion.div
+  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 text-white text-center space-y-2 z-10"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0, y: -30, transition: { duration: 1 } }}
+  >
       {bannerText?.map((line, lineIndex) => {
         const words = line?.data?.split(" ");
 
         return (
-          <div key={lineIndex} className="flex  flex-wrap gap-2">
+          <div key={lineIndex} className="flex flex-wrap gap-2 justify-center">
             {words.map((word, wordIndex) => {
               const index = globalIndex++;
               return (

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { bannerImages } from "@/variables/home/section_1";
-import "./sectionOne.css";
 import BannerThumbnail from "./BannerThumbnail";
 import BannerSlider from "./BannerSlider";
 

@@ -1,15 +1,49 @@
-'use client';
+"use client";
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import BannerText from "./section_1/BannerText.jsx";
 import SectionOne from "./section_1/SectionOne.jsx";
 import SectionTwo from "./section_2/SectionTwo.jsx";
 
 const HomePage = () => {
-   
+  const [showText, setShowText] = useState(true);
+  const [showBanner, setShowBanner] = useState(false);
+  const [showNav,setShowNav] = useState(false)
+
+  useEffect(() => {
+    if (!showText) {
+      // Wait for exit animation to complete before showing home page
+      const bannerTimer = setTimeout(() => {
+        setShowBanner(true);
+      }, 1000); // match exit duration
+
+      const navTimer = setTimeout(()=>{
+        setShowNav(true)
+      },2000)
+
+      return () => {
+      
+        clearTimeout(bannerTimer);
+        clearTimeout(navTimer);
+      }
+        
+    }
+  }, [showText]);
+
   return (
     <>
-    <SectionOne />
-    <SectionTwo/>
-    </>
-  )
-}
+      <div className={`bg-black w-full h-screen relative overflow-hidden ${showNav ?"z-0":"z-20"} `}>
+        <AnimatePresence mode="wait">
+          {showText && (
+            <BannerText key="bannerText" setShowText={setShowText} />
+          )}
+        </AnimatePresence>
+        {showBanner && <SectionOne />}
+      </div>
 
-export default HomePage
+      {showBanner && <SectionTwo />}
+    </>
+  );
+};
+
+export default HomePage;

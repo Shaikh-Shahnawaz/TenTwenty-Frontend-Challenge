@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import HomePage from "@/components/home/HomePage";
-export default function Home() {
-  return (
-    <HomePage/>
-  );
-}
+
+const Home = () => {
+return (<HomePage />);
+};
+export default Home;

@@ -1,8 +1,16 @@
 "use client";
+
+import ProductSlider from "./ProductSlider";
+import IntroText from "./IntroText";
+import "./sectionTwo.css";
+
 const SectionTwo = () => {
   return (
-    <div>SectionTwo</div>
-  )
-}
+    <>
+      <IntroText />
+      <ProductSlider />
+    </>
+  );
+};
 
-export default SectionTwo
+export default SectionTwo;
