@@ -1,12 +1,4 @@
-.bannerWrapper {
-  position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  margin: auto;
-  aspect-ratio: 16 / 9;
-}
-
+/* Animated img component */
 .bannerImage {
   width: 100%;
   height: 100%;

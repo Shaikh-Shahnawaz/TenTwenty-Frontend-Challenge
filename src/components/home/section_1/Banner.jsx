@@ -63,7 +63,7 @@ export default function Banner() {
   }, [resetTimer]);
 
   return (
-    <div className="bannerWrapper relative overflow-hidden">
+    <div className="relative overflow-hidden h-screen">
       {/* Thumbnail with snake animation */}
       <BannerThumbnail
         currentIndex={currentIndex}

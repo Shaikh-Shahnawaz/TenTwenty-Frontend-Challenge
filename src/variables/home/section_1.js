@@ -8,15 +8,15 @@ const bannerImages = [
 const bannerText = [
   {
     data: "Welcome To TenTwenty Farms",
-    className: "text-2xl md:text-2xl font-semibold",
+    className: "text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold",
   },
   {
     data: "From Our Farms",
-    className: "text-4xl md:text-6xl font-semibold",
+    className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold",
   },
   {
     data: "To Your Hands",
-    className: "text-4xl md:text-6xl font-semibold",
+    className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold",
   },
 ];
 
