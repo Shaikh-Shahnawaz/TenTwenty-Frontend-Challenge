@@ -28,7 +28,8 @@ const ProductSlider = () => {
   };
 
   return (
-    <div className="max-w-[100vw] overflow-hidden px-4 mt-5">
+   <div className="max-w-[100vw] overflow-hidden px-4 mt-5 h-screen relative">
+  <div className="absolute top-1/2 left-0 w-full -translate-y-1/2">
       <Slick {...settings}>
         {sliderImages.map((ele, index) => {
           let rotate = 0;
@@ -52,7 +53,7 @@ const ProductSlider = () => {
           }
 
           return (
-            <div key={index} className="px-2">
+            <div key={index} className="px-2 py-20">
               <motion.div
                 animate={{ rotate }}
                 transition={{
@@ -67,7 +68,7 @@ const ProductSlider = () => {
                   src={ele.src}
                   alt={ele.title}
                   fill
-                  className="object-cover rounded-xl shadow-lg"
+                  className="object-cover shadow-lg"
                 />
               </motion.div>
             </div>
@@ -80,6 +81,7 @@ const ProductSlider = () => {
         textRef={textRef}
         currentIndex={currentIndex}
       />
+    </div>
     </div>
   );
 };
