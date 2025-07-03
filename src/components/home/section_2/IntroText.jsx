@@ -16,7 +16,7 @@ const IntroText = () => {
     >
       {/* Title */}
       <motion.h1
-        className="text-5xl text-center py-4"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center pt-4 font-semibold"
         variants={{
           hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
@@ -28,7 +28,7 @@ const IntroText = () => {
 
       {/* Paragraph */}
       <motion.p
-        className="text-[grey] my-4 w-[60%] text-center text-1xl mx-auto"
+        className="text-gray-500 text-sm sm:text-base md:text-lg lg:text-xl my-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] text-center mx-auto"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },

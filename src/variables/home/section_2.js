@@ -23,24 +23,25 @@ const sliderImages = [
 ];
 
 const sliderResponsiveSetting = [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 1,
-        },
-      },
-    ]
+  {
+    breakpoint: 768,
+    settings: {
+      arrows: false,
+      centerMode: true,
+      centerPadding: "10px",
+      slidesToShow: 3,
+    },
+  },
+  {
+    breakpoint: 550,
+    settings: {
+      arrows: false,
+      centerMode: true,
+      centerPadding: "60px",
+      slidesToShow: 1,
+    },
+  },
+];
+
 
 export {sliderImages,sliderResponsiveSetting}

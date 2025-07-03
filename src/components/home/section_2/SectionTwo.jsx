@@ -6,10 +6,10 @@ import "./sectionTwo.css";
 
 const SectionTwo = () => {
   return (
-    <>
+    <div className="sm:my-6 md:my-6">
       <IntroText />
       <ProductSlider />
-    </>
+    </div>
   );
 };
 

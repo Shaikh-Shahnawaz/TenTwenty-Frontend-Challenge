@@ -4,17 +4,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { sliderImages } from "@/variables/home/section_2";
 
 const SliderCaption = ({ currentIndex, textRef, isInView }) => {
-
   return (
     <div
       ref={textRef}
-      className="h-[100px] flex items-center justify-center relative overflow-hidden"
+      className="h-auto min-h-[100px] flex items-center justify-center relative overflow-hidden px-4"
     >
       <AnimatePresence mode="wait">
         {isInView && (
           <motion.div
             key={sliderImages[currentIndex].title}
-            className="absolute text-center"
+            className="absolute text-center pb-3"
             initial="initial"
             animate="animate"
             exit="exit"
@@ -26,7 +25,7 @@ const SliderCaption = ({ currentIndex, textRef, isInView }) => {
           >
             {/* Title */}
             <motion.h1
-              className="text-2xl font-semibold"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold"
               variants={{
                 initial: { opacity: 0, y: 20 },
                 animate: { opacity: 1, y: 0 },
@@ -39,7 +38,7 @@ const SliderCaption = ({ currentIndex, textRef, isInView }) => {
 
             {/* Description */}
             <motion.p
-              className="text-base mt-1"
+              className="text-sm sm:text-base md:text-lg mt-1 text-gray-600"
               variants={{
                 initial: { opacity: 0, y: 10 },
                 animate: { opacity: 1, y: 0 },
