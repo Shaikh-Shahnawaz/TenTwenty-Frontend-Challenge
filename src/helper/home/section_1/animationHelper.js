@@ -9,7 +9,7 @@ function getStrokeAnimationStyle(duration) {
 function renderSnakeBorderSVG({ animKey, animationStyle }) {
   return (
     <svg
-      className="absolute inset-0 w-full h-full pointer-events-none z-0"
+      className="absolute inset-0 w-full h-full pointer-events-none z-20"
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
     >
@@ -21,7 +21,7 @@ function renderSnakeBorderSVG({ animKey, animationStyle }) {
         height="98"
         fill="none"
         stroke="white"
-        strokeWidth="2"
+        strokeWidth="4"
         strokeDasharray="1"
         strokeDashoffset="1"
         pathLength="1"

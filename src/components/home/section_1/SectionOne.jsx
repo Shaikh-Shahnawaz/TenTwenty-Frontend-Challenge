@@ -1,3 +1,4 @@
+"use client";
 import Banner from "./Banner";
 import BannerText from "./BannerText";
 import { useEffect, useState } from "react";

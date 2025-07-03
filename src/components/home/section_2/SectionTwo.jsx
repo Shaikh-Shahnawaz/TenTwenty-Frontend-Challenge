@@ -1,4 +1,4 @@
-
+"use client";
 const SectionTwo = () => {
   return (
     <div>SectionTwo</div>

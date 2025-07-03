@@ -1,3 +1,4 @@
+"use client";
 import { bannerImages, bannerMotionVars } from "@/variables/home/section_1"
 import AnimatedImage from "./AnimatedImage"
 import { motion } from "framer-motion";

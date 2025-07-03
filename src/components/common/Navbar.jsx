@@ -1,3 +1,4 @@
+"use client";
 const Navbar = () => {
   return (
     <nav className="w-[96%] absolute top-[20px] mx-6 p-6 bg-white text-black flex items-center justify-between z-30">
