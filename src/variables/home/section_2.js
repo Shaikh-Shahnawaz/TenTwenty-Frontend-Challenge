@@ -28,12 +28,12 @@ const sliderResponsiveSetting = [
     settings: {
       arrows: false,
       centerMode: true,
-      centerPadding: "10px",
+      centerPadding: "5px",
       slidesToShow: 3,
     },
   },
   {
-    breakpoint: 550,
+    breakpoint: 600,
     settings: {
       arrows: false,
       centerMode: true,
