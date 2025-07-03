@@ -1,11 +1,11 @@
 "use client";
 import Banner from "./Banner";
-import FinalStaticText from "./FinalStaticText";
+import StaticText from "./StaticText";
 
 const SectionOne = () => {
   return (
         <>
-        <FinalStaticText/>
+        <StaticText/>
         <Banner />
         </>
   );

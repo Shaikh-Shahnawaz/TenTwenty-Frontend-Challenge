@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import BannerText from "./section_1/BannerText.jsx";
+import AnimatedText from "./section_1/AnimatedText.jsx";
 import SectionOne from "./section_1/SectionOne.jsx";
 import SectionTwo from "./section_2/SectionTwo.jsx";
 
@@ -35,7 +35,7 @@ const HomePage = () => {
       <div className={`bg-black w-full h-screen relative overflow-hidden ${showNav ?"z-0":"z-20"} `}>
         <AnimatePresence mode="wait">
           {showText && (
-            <BannerText key="bannerText" setShowText={setShowText} />
+            <AnimatedText key="bannerText" setShowText={setShowText} />
           )}
         </AnimatePresence>
         {showBanner && <SectionOne />}
